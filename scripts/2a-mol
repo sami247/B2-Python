@@ -1,0 +1,171 @@
+-mol
+# Description: Jeu du plus ou moins dans un fichier
+# Sami Ben el fahsi
+# 23/10/2018
+
+
+
+
+
+from random import randint
+import re
+import signal
+
+
+
+
+
+
+
+def bye(*args):
+  global x
+  ecrire("La solution était: " + str(x))
+  exit(0)
+
+# Gestion signals
+
+
+
+signal.signal(signal.SIGINT, bye)
+signal.signal(signal.SIGTERM, bye)
+
+
+
+# Ecrire dans un fichier
+
+
+
+def ecrire(message):
+  fichier = open("plusmoins.txt", "w")
+  fichier.write(message)
+  fichier.close()
+
+
+
+# Lecture du fichir
+
+
+def lire():
+    
+  fichier = open("plusmoins.txt", "r")
+  message = fichier.read()
+  fichier.close()
+  return message
+
+x = randint(0,100)
+fin = False
+
+ecrire("Bienvenue dans le jeu du plus ou moins  Saisir des nombres entiers compris entre 0 et 100\n")
+
+while fin is False:
+  nb = lire()
+
+
+
+  # On vérifie l'entrée utilisateur
+    
+    
+    
+  if re.match(r"^[0-9]+$", nb):
+    nb = int(nb)
+    if nb > 100:
+      continue
+    
+    if nb < x:
+      ecrire("Plus grand")
+    else if nb > x:
+      ecrire("Plus petit")
+    else:
+      ecrire("Victoire!")
+      fin = True
+  
+  else if nb == 'q' or nb == 'q\n':
+    bye()  
+
+  else:
+    continue-mol
+# Description: Jeu du plus ou moins dans un fichier
+# Sami Ben el fahsi
+# 23/10/2018
+
+
+
+
+
+from random import randint
+import re
+import signal
+
+
+
+
+
+
+
+def bye(*args):
+  global x
+  ecrire("La solution était: " + str(x))
+  exit(0)
+
+# Gestion signals
+
+
+
+signal.signal(signal.SIGINT, bye)
+signal.signal(signal.SIGTERM, bye)
+
+
+
+# Ecrire dans un fichier
+
+
+
+def ecrire(message):
+  fichier = open("plusmoins.txt", "w")
+  fichier.write(message)
+  fichier.close()
+
+
+
+# Lecture du fichir
+
+
+def lire():
+    
+  fichier = open("plusmoins.txt", "r")
+  message = fichier.read()
+  fichier.close()
+  return message
+
+x = randint(0,100)
+fin = False
+
+ecrire("Bienvenue dans le jeu du plus ou moins  Saisir des nombres entiers compris entre 0 et 100\n")
+
+while fin is False:
+  nb = lire()
+
+
+
+  # On vérifie l'entrée utilisateur
+    
+    
+    
+  if re.match(r"^[0-9]+$", nb):
+    nb = int(nb)
+    if nb > 100:
+      continue
+    
+    if nb < x:
+      ecrire("Plus grand")
+    else if nb > x:
+      ecrire("Plus petit")
+    else:
+      ecrire("Victoire!")
+      fin = True
+  
+  else if nb == 'q' or nb == 'q\n':
+    bye()  
+
+  else:
+    continue
